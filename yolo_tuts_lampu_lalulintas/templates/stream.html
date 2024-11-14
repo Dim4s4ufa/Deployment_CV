@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Realtime Object Detection</title>
+</head>
+<body>
+  <h1>Realtime Object Detection</h1>
+  {% if on_air %}
+  <img src={{url_for('video_stream')}} alt="">
+  <button id="stop">Stop Streaming</button>
+  {% endif %}
+</body>
+<script>
+  let stopButton = document.getElementById("stop");
+  stopButton.addEventListener('click', function(){
+    fetch("/realtime-object-detection/stop", {method: 'GET'})
+  })
+</script>
+</html>
